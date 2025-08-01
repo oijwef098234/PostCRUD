@@ -1,0 +1,59 @@
+# macOS 관련
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+.idea/
+
+# Java 관련
+*.class
+*.jar
+*.war
+*.ear
+
+# Gradle 관련
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+
+# IntelliJ IDEA
+*.iml
+.idea/
+
+# 로그 파일
+*.log
+
+# 환경설정 파일
+*.env
+.env*
+
+# 테스트 결과
+/test-output/
+test-output/
+
+# Java Heap Dump
+*.hprof
+
+# Spring Boot
+hs_err_pid*
+
+# VSCode (혹시 쓰는 경우)
+.vscode/
+
+# OS 임시파일
+*.swp
+*.swo
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Application config
+application-local.yml
+application-prod.yml
+application-dev.yml
+application.properties
+application.yml
