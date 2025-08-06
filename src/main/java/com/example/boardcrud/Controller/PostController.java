@@ -6,6 +6,7 @@ import com.example.boardcrud.Service.ReadService;
 import com.example.boardcrud.Service.UpdateService;
 import com.example.boardcrud.dto.Request.PostRequest;
 import com.example.boardcrud.dto.Responsse.PostResponse;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,7 +22,7 @@ public class PostController {
     private final UpdateService updateService;
 
     @PostMapping("/create") // 생성
-    public void createPost(@RequestBody PostRequest postRequest) {
+    public void createPost(@Valid @RequestBody PostRequest postRequest) {
         createService.createPost(postRequest);
     }
 
@@ -41,7 +42,7 @@ public class PostController {
     }
 
     @PatchMapping("/{id}")
-    public void updatePost(@RequestBody PostRequest postRequest, @PathVariable Long id) {
+    public void updatePost(@Valid @RequestBody PostRequest postRequest, @PathVariable Long id) {
         updateService.updatePost(postRequest, id);
     }
 }
