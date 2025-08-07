@@ -21,6 +21,7 @@ public class Post {
     private String title;
     private String content;
     private String userName;
+    private String password;
 
     public Post(String title, String content, String userName) {
         this.title = title;
@@ -33,4 +34,6 @@ public class Post {
         this.content = content;
         this.userName = userName;
     }
+
+
 }

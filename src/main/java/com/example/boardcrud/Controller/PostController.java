@@ -1,13 +1,12 @@
 package com.example.boardcrud.Controller;
 
-import com.example.boardcrud.Service.CreateService;
-import com.example.boardcrud.Service.DeleteService;
-import com.example.boardcrud.Service.ReadService;
-import com.example.boardcrud.Service.UpdateService;
+import com.example.boardcrud.Service.*;
 import com.example.boardcrud.dto.Request.PostRequest;
+import com.example.boardcrud.dto.Request.UserRequestDto;
 import com.example.boardcrud.dto.Responsse.PostResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,6 +19,7 @@ public class PostController {
     private final ReadService readService;
     private final DeleteService deleteService;
     private final UpdateService updateService;
+    private final UserService userService;
 
     @PostMapping("/create") // 생성
     public void createPost(@Valid @RequestBody PostRequest postRequest) {
@@ -44,5 +44,17 @@ public class PostController {
     @PatchMapping("/{id}")
     public void updatePost(@Valid @RequestBody PostRequest postRequest, @PathVariable Long id) {
         updateService.updatePost(postRequest, id);
+    }
+
+    @PostMapping("/signup")
+    public ResponseEntity<String> signUp(@Valid @RequestBody UserRequestDto dto) {
+        userService.signUp(dto);
+        return ResponseEntity.ok("회원가입 성공");
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<String> login(@Valid @RequestBody UserRequestDto dto) {
+        String result = userService.login(dto);
+        return ResponseEntity.ok(result);
     }
 }
